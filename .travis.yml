@@ -8,5 +8,17 @@ sudo: required
 services:
   - docker
 
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $ACCESSKEYID
+  secret_access_key:
+    secure: "$SECRETACCESSKEY"
+  region: "us-east-1"  
+  app: "spring-music"
+  env: "spring-music"
+  bucket_name: "ramanbucket1970"
+  on:
+    branch: master
+    
 after_deploy:
   - echo "done deploying"
